@@ -66,12 +66,13 @@ int main()
 	}
 
 	char character = getch();
+	int v_char = (int)character;
 
-	switch((int)character) {
+	switch(v_char) {
 		case 49 ... 57: {
-			if(slots[(int)character - 49].used != 1) {
-				slots[(int)character - 49].used = 1;
-				slots[(int)character - 49].player = (((last_turn == 0) ? 1 : 0) + 1);
+			if(slots[v_char - 49].used != 1) {
+				slots[v_char - 49].used = 1;
+				slots[v_char - 49].player = (((last_turn == 0) ? 1 : 0) + 1);
 				last_turn = !last_turn;
 				goto select_slot;
 			}
